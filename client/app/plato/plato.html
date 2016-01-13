@@ -2,18 +2,94 @@
 
 <header class="hero-unit" id="banner">
   <div class="container">
-    <h1>Resturante DSAI</h1>
-    <p class="lead">Platos</p>
-  </div>
+    <i class="fa fa-cutlery fa-5x">    <h1>Resturante DSAI</h1></i>
+    </div>
 </header>
 
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="page-header">Platos:</h1>
-     <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="plato in plato.platos">
-       <li><a href="#" >{{plato.nombre}}</a></li>
-     </ul>
+      <h1 class="page-header">Platos</h1>
+
+      <button type="button" class="btn btn-default" ng-if="!plato.mostrarCrearPlato" ng-click="plato.mostrarCrearPlato = true">Nuevo Plato</button>
+
+
+      <div ng-if="plato.mostrarCrearPlato" style="margin-top:20px;">
+        <div style="margin-bottom:20px;">
+          <label>Nombre plato</label>
+          <input type="text"  class="form-control" ng-model="plato.nombreCrear">
+          <label>Descripcion</label>
+          <input type="text"  class="form-control" ng-model="plato.descripcionCrear">
+          <label>Calorias</label>
+          <input type="number"  class="form-control" ng-model="plato.caloriasCrear">
+          <label>Precio</label>
+          <input type="number"  class="form-control" ng-model="plato.precioCrear">
+          <label>Url Foro</label>
+          <input type="text"  class="form-control" ng-model="plato.fotoCrear">
+        </div>
+        <button type="button" class="btn btn-primary" ng-if="!plato.editar" ng-click="plato.crearPlato()">Crear Plato</button>
+        <button type="button" class="btn btn-primary" ng-if="plato.editar" ng-click="plato.editarPlato()">Guardar Edición</button>
+        <button type="button" class="btn btn-danger" ng-if="plato.mostrarCrearPlato" ng-click="plato.mostrarCrearPlato = false; plato.limpiarDatos()">Cancelar</button>
+      </div>
+
+      <hr>
+
+      <table class="table table-hover" >
+        <thead>
+
+          <th>
+            Nombre Plato
+          </th>
+          <th>
+            Descripcion
+          </th>
+          <th>
+            Calorias
+          </th>
+          <th>
+            Precio
+          </th>
+          <th>
+            Foto
+          </th>
+          <th>
+            Ingredientes
+          </th>
+          <th>
+            Acciones
+          </th>
+        </thead>
+        <tbody ng-repeat="p in plato.platos">
+
+          <td>
+            {{p.nombre}}
+          </td>
+          <td>
+            {{p.descripcion}}
+          </td>
+          <td>
+            {{p.calorias}}
+          </td>
+          <td>
+            {{p.precio}}
+          </td>
+          <td>
+            <img src="{{p.foto}}" alt="{{p.nombre}}" style="width:100px;height:100px;">
+          </td>
+          <td>
+            {{p.ingrediente}}
+          </td>
+          <td>
+            <a class="btn btn-danger" ng-click="plato.borrarPlato(p._id)">
+              <i class="fa fa-trash-o fa-lg"></i>
+            </a>
+            <a class="btn btn-primary"ng-click="plato.edicionPlato(p)" href="#">
+              <i class="fa fa-pencil fa-lg"></i>
+            </a>
+          </td>
+        </tbody>
+      </table>
+
 
     </div>
   </div>
