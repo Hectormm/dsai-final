@@ -26,6 +26,11 @@
           <input type="number"  class="form-control" ng-model="plato.precioCrear">
           <label>Url Foro</label>
           <input type="text"  class="form-control" ng-model="plato.fotoCrear">
+          <label>Ingredientes</label>
+          <select  class="form-control" multiple ng-model="plato.ingredientesCrear">
+            <option ng-repeat="i in plato.ingredientes" value="{{i._id}}" >{{i.nombre}}</option>
+          </select>
+
         </div>
         <button type="button" class="btn btn-primary" ng-if="!plato.editar" ng-click="plato.crearPlato()">Crear Plato</button>
         <button type="button" class="btn btn-primary" ng-if="plato.editar" ng-click="plato.editarPlato()">Guardar Edición</button>
@@ -76,8 +81,7 @@
           <td>
             <img src="{{p.foto}}" alt="{{p.nombre}}" style="width:100px;height:100px;">
           </td>
-          <td>
-            {{p.ingrediente}}
+          <td ng-bind-html="plato.dameNombresIngredientes(p.ingrediente)">
           </td>
           <td>
             <a class="btn btn-danger" ng-click="plato.borrarPlato(p._id)">

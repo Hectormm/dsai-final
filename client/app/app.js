@@ -6,7 +6,7 @@ angular.module('dsaiFinalApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
 ])
   .config(function($routeProvider, $locationProvider) {
     $routeProvider

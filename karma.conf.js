@@ -21,6 +21,7 @@ module.exports = function(config) {
       'client/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'client/bower_components/lodash/dist/lodash.compat.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
+      'client/bower_components/underscore/underscore.js',
       // endbower
       'client/app/app.js',
       'client/{app,components}/**/*.module.js',
