@@ -19,6 +19,6 @@ module.exports = {
           process.env.MONGOHQ_URL ||
           process.env.OPENSHIFT_MONGODB_DB_URL +
           process.env.OPENSHIFT_APP_NAME ||
-          'mongodb://localhost/dsaifinal'
+          'mongodb://Hectormm:15240193wW+@ds045465.mongolab.com:45465/dsai-hmm7'
   }
 };
