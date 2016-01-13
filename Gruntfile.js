@@ -815,9 +815,5 @@ module.exports = function (grunt) {
     'usemin'
   ]);
 
-  grunt.registerTask('default', [
-    'newer:tslint',
-    'test',
-    'build'
-  ]);
+
 };
